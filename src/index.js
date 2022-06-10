@@ -10,7 +10,7 @@ const requireAuth = require("./middlewares/requireAuth");
 const app = express();
 app.use(express.json());
 
-const mongoUri = "mongodb+srv://rafael:1234@cluster0.jljzt.mongodb.net/track";
+const mongoUri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.jljzt.mongodb.net/track`;
 mongoose.connect(mongoUri);
 
 mongoose.connection.on("connected", () => {
